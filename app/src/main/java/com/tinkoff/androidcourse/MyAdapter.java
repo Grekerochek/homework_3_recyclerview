@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import java.util.List;
 
-import static com.tinkoff.androidcourse.WorkerGenerator.generateWorker;
-
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements
         MyItemTouchHelper.ItemTouchHelperAdapter  {
@@ -56,14 +54,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
         this.workers = workers;
     }
 
-    public List<Worker> getData() {
-        return workers;
-    }
-
-    public void setData(List<Worker> workers) {
-        this.workers = workers;
-    }
-
 
 
     @Override
@@ -86,10 +76,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
         holder.photo.setImageResource(workers.get(i).getPhoto());
 
     }
-    public void addItem() {
-        workers.add(generateWorker());
-    }
-
 
     @Override
     public int getItemCount() {
@@ -105,8 +91,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
 
 
         diffResult.dispatchUpdatesTo(this);
-
-
 
 
     }

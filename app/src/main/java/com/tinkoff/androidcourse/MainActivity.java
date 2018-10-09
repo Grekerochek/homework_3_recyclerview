@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fab;
 
     private ArrayList<Worker> workers;
-    private ArrayList<Worker> workersNew;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
         workers=new ArrayList<>();
         workers.addAll(generateWorkers(2));
 
-        workersNew=new ArrayList<>();
-        workersNew.addAll(workers);
-        workersNew.addAll(generateWorkers(5));
 
 
         mRecyclerView = findViewById(R.id.recyclerView);
@@ -59,9 +55,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                workers=new ArrayList<>(workers);
+                workers.addAll(generateWorkers(2));
 
-
-               myAdapter.updateList(workersNew);
+                myAdapter.updateList(workers); //зло, но пока лекции про многопоточность не было, так
 
 
             }
