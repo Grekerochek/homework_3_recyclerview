@@ -28,6 +28,7 @@ public class MyDiffUtilCallback extends DiffUtil.Callback {
     public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
 
         return oldList.get(oldItemPosition).equals(newList.get(newItemPosition));
+
     }
 
     @Override
@@ -36,6 +37,7 @@ public class MyDiffUtilCallback extends DiffUtil.Callback {
         Worker newWorker = newList.get(newItemPosition);
         return oldWorker.getName().equals(newWorker.getName())
                 && oldWorker.getAge().equals(newWorker.getAge())
-                && oldWorker.getPosition().equals(newWorker.getPosition());
+                && oldWorker.getPosition().equals(newWorker.getPosition())
+                && oldWorker.getPhoto().equals(newWorker.getPhoto());
     }
 }

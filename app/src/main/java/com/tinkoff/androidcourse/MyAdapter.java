@@ -1,6 +1,6 @@
 package com.tinkoff.androidcourse;
 
-import android.support.v7.util.DiffUtil;
+
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import java.util.List;
+
 
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements
@@ -82,16 +84,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
         return workers.size();
     }
 
-    public void updateList(List<Worker> workers) {
-        final MyDiffUtilCallback diffCallback = new MyDiffUtilCallback(this.workers, workers);
-        final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
 
-        this.workers.clear();
-        this.workers.addAll(workers);
-
-
-        diffResult.dispatchUpdatesTo(this);
-
-
+    public List<Worker> getData() {
+        return workers;
     }
+
+    public void setData(List<Worker> workers) {
+        this.workers=workers;
+    }
+
 }
